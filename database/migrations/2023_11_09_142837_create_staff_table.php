@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('staff', function (Blueprint $table) {
             $table->id();
             $table->string('nip')->unique();
-            $table->string('name');
-            $table->string('date_of_birth');
-            $table->enum('gender', ['male', 'female']);
-            $table->string('position');
+            $table->string('nama');
+            $table->string('tanggal_lahir');
+            $table->enum('gender', ['Laki-laki', 'Perempuan']);
+            $table->string('posisi');
             $table->timestamps();
         });
     }

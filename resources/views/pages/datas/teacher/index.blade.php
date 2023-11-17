@@ -33,7 +33,7 @@
             data-bs-target="#createModal">
             {{ __('menu.general.create') }}
         </button>
-        
+
     </x-breadcrumb>
 
     <div class="card mb-5">

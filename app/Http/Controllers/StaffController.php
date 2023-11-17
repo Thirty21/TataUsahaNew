@@ -55,8 +55,8 @@ class StaffController extends Controller
         $data = $request->validated();
 
         // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
-        if (!in_array($data['gender'], ['Male', 'Female'])) {
-            return back()->with('error', 'Invalid gender value.');
+        if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
+            return back()->with('error', 'Invalid jenis kelamin value.');
         }
             Staff::create($request->validated());
             return back()->with('success', __('menu.general.success'));

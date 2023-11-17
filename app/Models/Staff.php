@@ -12,10 +12,10 @@ class Staff extends Model
 
     protected $fillable = [
         'nip',
-        'name',
-        'date_of_birth',
+        'nama',
+        'tanggal_lahir',
         'gender',
-        'position',
+        'posisi',
     ];
 
     public function scopeSearch($query, $search)
@@ -23,9 +23,9 @@ class Staff extends Model
         return $query->when($search, function($query, $find) {
             return $query
                 ->where('nip', 'LIKE', $find . '%')
-                ->orWhere('name', 'LIKE','%' . $find. '%')
+                ->orWhere('nama', 'LIKE','%' . $find. '%')
                 ->orWhere('gender', 'LIKE','%' . $find. '%')
-                ->orWhere('position', 'LIKE', '%' . $find . '%');
+                ->orWhere('posisi', 'LIKE', '%' . $find . '%');
         });
     }
 

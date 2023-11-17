@@ -72,10 +72,10 @@ return [
     ],
     'staff' => [
         'nip' => 'Nip',
-        'name' => 'Nama',
-        'date_of_birth' => 'Tanggal Lahir',
+        'nama' => 'Nama',
+        'tanggal_lahir' => 'Tanggal Lahir',
         'gender' => 'Jenis Kelamin',
-        'position' => 'Position',
+        'posisi' => 'Posisi',
     ],
     'general' => [
         'created_at' => 'Dibuat pada',

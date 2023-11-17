@@ -21,11 +21,11 @@ class StoreStaffRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'nip' => __('model.staff.nis'),
-            'name' => __('model.staff.nama'),
-            'date_of_birth' => __('model.staff.date_of_birth'),
+            'nip' => __('model.staff.nip'),
+            'nama' => __('model.staff.nama'),
+            'tanggal_lahir' => __('model.staff.tanggal_lahir'),
             'gender' => __('model.staff.gender'),
-            'position' => __('model.staff.position'),
+            'posisi' => __('model.staff.posisi'),
         ];
     }
 
@@ -38,10 +38,10 @@ class StoreStaffRequest extends FormRequest
     {
         return [
             'nip' => ['required', Rule::unique('staff')],
-            'name' => ['required'],
-            'date_of_birth' => ['nullable'],
+            'nama' => ['required'],
+            'tanggal_lahir' => ['nullable'],
             'gender' => ['nullable'],
-            'position' => ['nullable'],
+            'posisi' => ['nullable'],
         ];
     }
 }

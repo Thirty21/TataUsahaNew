@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nig')->unique();
             $table->string('nama');
             $table->string('tanggal_lahir');
-            $table->string('jenis_kelamin');
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->string('alamat');
             $table->timestamps();
         });

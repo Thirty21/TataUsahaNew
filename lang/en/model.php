@@ -68,14 +68,14 @@ return [
         'nama' => 'Name',
         'tanggal_lahir' => 'Date of birth',
         'jenis_kelamin' => 'Gender',
-        'alamat' => 'Adress',
+        'alamat' => 'Address',
     ],
     'staff' => [
         'nip' => 'Nip',
-        'name' => 'Name',
-        'date_of_birth' => 'Date of birth',
+        'nama' => 'Nama',
+        'tanggal_lahir' => 'Date of birth',
         'gender' => 'Gender',
-        'position' => 'Position',
+        'posisi' => 'Position',
     ],
     'general' => [
         'created_at' => 'Created At',

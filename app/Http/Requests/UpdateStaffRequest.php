@@ -21,10 +21,10 @@ class UpdateStaffRequest extends FormRequest
     {
         return [
             'nip' => __('model.staff.nis'),
-            'name' => __('model.staff.nama'),
-            'date_of_birth' => __('model.staff.date_of_birth'),
+            'nama' => __('model.staff.nama'),
+            'tanggal_lahir' => __('model.staff.date_of_birth'),
             'gender' => __('model.staff.gender'),
-            'position' => __('model.staff.position'),
+            'posisi' => __('model.staff.posisi'),
         ];
     }
 
@@ -37,10 +37,10 @@ class UpdateStaffRequest extends FormRequest
     {
         return [
                 'nip' => ['required', Rule::unique('staff')->ignore($this->id)],
-                'name' => ['required'],
-                'date_of_birth'=> ['nullable'],
+                'nama' => ['required'],
+                'tanggal_lahir'=> ['nullable'],
                 'gender'=> ['nullable'],
-                'position'=> ['nullable'],
+                'posisi'=> ['nullable'],
         ];
     }
 }
