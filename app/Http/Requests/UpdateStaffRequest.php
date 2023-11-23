@@ -20,7 +20,7 @@ class UpdateStaffRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'nip' => __('model.staff.nis'),
+            'nip' => __('model.staff.nip'),
             'nama' => __('model.staff.nama'),
             'tanggal_lahir' => __('model.staff.date_of_birth'),
             'gender' => __('model.staff.gender'),
@@ -36,7 +36,7 @@ class UpdateStaffRequest extends FormRequest
     public function rules()
     {
         return [
-                'nip' => ['required', Rule::unique('staff')->ignore($this->id)],
+                'nip' => ['required', Rule::unique('staff')->ignore($this->id), 'size:8'],
                 'nama' => ['required'],
                 'tanggal_lahir'=> ['nullable'],
                 'gender'=> ['nullable'],

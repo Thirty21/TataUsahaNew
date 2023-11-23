@@ -50,6 +50,13 @@ class StudentController extends Controller
     public function store(StoreStudentRequest $request): RedirectResponse
     {
         try {
+         // Validasi dan simpan data
+        $data = $request->validated();
+
+        // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
+        if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
+            return back()->with('error', 'Invalid jenis kelamin value.');
+        }
             Student::create($request->validated());
             return back()->with('success', __('menu.general.success'));
         } catch (\Throwable $exception) {

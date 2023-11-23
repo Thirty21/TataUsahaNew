@@ -9,8 +9,12 @@
             $('#editModal input#nis').val($(this).data('nis'));
             $('#editModal input#nama').val($(this).data('nama'));
             $('#editModal input#tanggal_lahir').val($(this).data('tanggal_lahir'));
-            $('#editModal input#jenis_kelamin').val($(this).data('jenis_kelamin'));
+            $('#editModal input#gender').val($(this).data('gender'));
             $('#editModal input#alamat').val($(this).data('alamat'));
+            // Set selected gender in the select element
+            $('#editModal select#gender').val(gender);
+            const gender = $(this).data('gender');
+            console.log('Gender:', gender);
         });
     </script>
 @endpush
@@ -32,7 +36,7 @@
             data-bs-target="#createModal">
             {{ __('menu.general.create') }}
         </button>
-        
+
     </x-breadcrumb>
 
     <div class="card mb-5">
@@ -43,7 +47,7 @@
                     <th>{{ __('model.student.nis') }}</th>
                     <th>{{ __('model.student.nama') }}</th>
                     <th>{{ __('model.student.tanggal_lahir') }}</th>
-                    <th>{{ __('model.student.jenis_kelamin') }}</th>
+                    <th>{{ __('model.student.gender') }}</th>
                     <th>{{ __('model.student.alamat') }}</th>
                     <th>{{ __('menu.general.action') }}</th>
                 </tr>
@@ -55,7 +59,7 @@
                             <td>{{ $student->nis }}</td>
                             <td>{{ $student->nama }}</td>
                             <td>{{ $student->tanggal_lahir }}</td>
-                            <td>{{ $student->jenis_kelamin }}</td>
+                            <td>{{ $student->gender }}</td>
                             <td>{{ $student->alamat }}</td>
                             <td>
                                 <button class="btn btn-info btn-sm btn-edit"
@@ -63,7 +67,7 @@
                                         data-nis="{{ $student->nis }}"
                                         data-nama="{{ $student->nama }}"
                                         data-tanggal_lahir="{{ $student->tanggal_lahir }}"
-                                        data-jenis_kelamin="{{ $student->jenis_kelamin }}"
+                                        data-gender="{{ $student->gender }}"
                                         data-alamat="{{ $student->alamat }}"
                                         data-bs-toggle="modal"
                                         data-bs-target="#editModal">
@@ -93,7 +97,7 @@
                     <th>{{ __('model.student.nis') }}</th>
                     <th>{{ __('model.student.nama') }}</th>
                     <th>{{ __('model.student.tanggal_lahir') }}</th>
-                    <th>{{ __('model.student.jenis_kelamin') }}</th>
+                    <th>{{ __('model.student.gender') }}</th>
                     <th>{{ __('model.student.alamat') }}</th>
                     <th>{{ __('menu.general.action') }}</th>
                 </tr>
@@ -122,7 +126,13 @@
                     <x-input-form name="nis" :label="__('model.student.nis')"/>
                     <x-input-form name="nama" :label="__('model.student.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.student.tanggal_lahir')" type="date"/>
-                    <x-input-form name="jenis_kelamin" :label="__('model.student.jenis_kelamin')"/>
+                    <div class="form-group">
+                        <label for="gender">{{ __('model.student.gender') }}</label>
+                        <select name="gender" id="gender" class="form-control">
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
                     <x-input-form name="alamat" :label="__('model.student.alamat')"/>
                 </div>
                 <div class="modal-footer">
@@ -155,7 +165,13 @@
                     <x-input-form name="nis" :label="__('model.student.nis')"/>
                     <x-input-form name="nama" :label="__('model.student.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.student.tanggal_lahir')" type="date"/>
-                    <x-input-form name="jenis_kelamin" :label="__('model.student.jenis_kelamin')"/>
+                    <div class="form-group">
+                        <label for="gender">{{ __('model.student.gender') }}</label>
+                        <select name="gender" id="gender" class="form-control">
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
                     <x-input-form name="alamat" :label="__('model.student.alamat')"/>
                 </div>
                 <div class="modal-footer">

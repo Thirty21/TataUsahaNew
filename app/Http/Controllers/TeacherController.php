@@ -7,6 +7,10 @@ use App\Http\Requests\UpdateTeacherRequest;
 use App\Models\Teacher;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
+use App\Models\Config;
 
 class TeacherController extends Controller
 {
@@ -42,6 +46,11 @@ class TeacherController extends Controller
     public function store(StoreTeacherRequest $request)
     {
         try {
+            $data = $request->validated();
+        // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
+        if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
+            return back()->with('error', 'Invalid jenis kelamin value.');
+        }
             Teacher::create($request->validated());
             return back()->with('success', __('menu.general.success'));
         } catch (\Throwable $exception) {
@@ -71,26 +80,36 @@ class TeacherController extends Controller
         //
     }
 
-    /**
+     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UpdateTeacherRequest $request
+     * @param Teacher $teacher
+     * @return RedirectResponse
      */
-    public function update(UpdateTeacherRequest $request, $id)
+    public function update(UpdateTeacherRequest $request, Teacher $teacher): RedirectResponse
     {
-        //
+        try {
+            $teacher->update($request->validated());
+            return back()->with('success', __('menu.general.success'));
+        } catch (\Throwable $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
     }
 
-    /**
+     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Teacher $teacher
+     * @return RedirectResponse
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher): RedirectResponse
     {
-        //
+        try {
+            $teacher->delete();
+            return back()->with('success', __('menu.general.success'));
+        } catch (\Throwable $exception) {
+            return back()->with('error', $exception->getMessage());
+        }
     }
 }

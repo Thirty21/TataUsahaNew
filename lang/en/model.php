@@ -67,7 +67,7 @@ return [
         'nig' => 'Nig',
         'nama' => 'Name',
         'tanggal_lahir' => 'Date of birth',
-        'jenis_kelamin' => 'Gender',
+        'gender' => 'Gender',
         'alamat' => 'Address',
     ],
     'staff' => [

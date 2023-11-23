@@ -60,14 +60,14 @@ return [
         'nis' => 'Nis',
         'nama' => 'Nama',
         'tanggal_lahir' => 'Tanggal Lahir',
-        'jenis_kelamin' => 'Jenis Kelamin',
+        'gender' => 'Jenis Kelamin',
         'alamat' => 'Alamat',
     ],
     'teacher' => [
         'nig' => 'Nig',
         'nama' => 'Nama',
         'tanggal_lahir' => 'Tanggal Lahir',
-        'jenis_kelamin' => 'Jenis Kelamin',
+        'gender' => 'Jenis Kelamin',
         'alamat' => 'Alamat',
     ],
     'staff' => [

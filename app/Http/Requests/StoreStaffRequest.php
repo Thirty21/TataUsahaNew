@@ -37,7 +37,7 @@ class StoreStaffRequest extends FormRequest
     public function rules()
     {
         return [
-            'nip' => ['required', Rule::unique('staff')],
+            'nip' => ['required', Rule::unique('staff'), 'size:8'],
             'nama' => ['required'],
             'tanggal_lahir' => ['nullable'],
             'gender' => ['nullable'],

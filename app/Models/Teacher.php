@@ -14,7 +14,7 @@ class Teacher extends Model
         'nig',
         'nama',
         'tanggal_lahir',
-        'jenis_kelamin',
+        'gender',
         'alamat',
 
     ];
@@ -25,7 +25,7 @@ class Teacher extends Model
             return $query
                 ->where('nig', 'LIKE', $find . '%')
                 ->orWhere('nama', 'LIKE', '%' . $find . '%')
-                ->orWhere('jenis_kelamin', 'LIKE', '%' . $find . '%')
+                ->orWhere('gender', 'LIKE', '%' . $find . '%')
                 ->orWhere('alamat', 'LIKE', '%' . $find . '%');
         });
     }

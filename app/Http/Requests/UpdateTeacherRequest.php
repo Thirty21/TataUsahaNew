@@ -23,7 +23,7 @@ class UpdateTeacherRequest extends FormRequest
             'nig' => __('model.teacher.nig'),
             'nama' => __('model.teacher.nama'),
             'tanggal_lahir' => __('model.teacher.tanggal_lahir'),
-            'jenis_kelamin' => __('model.teacher.jenis_kelamin'),
+            'gender' => __('model.teacher.gender'),
             'alamat' => __('model.teacher.alamat'),
         ];
     }
@@ -36,10 +36,10 @@ class UpdateTeacherRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nig' => ['required', Rule::unique('teachers')],
+            'nig' => ['required', Rule::unique('teachers'), 'size:8'],
             'nama' => ['required'],
             'tanggal_lahir' => ['nullable'],
-            'jenis_kelamin' => ['nullable'],
+            'gender' => ['nullable'],
             'alamat' => ['nullable'],
         ];
     }

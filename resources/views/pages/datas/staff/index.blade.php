@@ -13,7 +13,7 @@
             // Set selected gender in the select element
             $('#editModal select#gender').val(gender);
             const gender = $(this).data('gender');
-            console.log('Gender:', gender); // Tambahkan log untuk memeriksa nilai gender
+            console.log('Gender:', gender);
         });
     </script>
 @endpush

@@ -23,7 +23,7 @@ class UpdateStudentRequest extends FormRequest
             'nis' => __('model.student.nis'),
             'nama' => __('model.student.nama'),
             'tanggal_lahir' => __('model.student.tanggal_lahir'),
-            'jenis_kelamin' => __('model.student.jenis_kelamin'),
+            'gender' => __('model.student.gender'),
             'alamat' => __('model.student.alamat'),
         ];
     }
@@ -36,10 +36,10 @@ class UpdateStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nis' => ['required', Rule::unique('students')->ignore($this->id)],
+            'nis' => ['required', Rule::unique('students')->ignore($this->id), 'size:8'],
             'nama' => ['required'],
             'tanggal_lahir'=> ['nullable'],
-            'jenis_kelamin'=> ['nullable'],
+            'gender'=> ['nullable'],
             'alamat'=> ['nullable'],
         ];
     }
