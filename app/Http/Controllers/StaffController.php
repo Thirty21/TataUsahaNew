@@ -29,17 +29,17 @@ class StaffController extends Controller
         ]);
     }
 
-    // public function print(Request $request): View
-    // {
-    //     $datas = __('menu.datas.menu');
-    //     $student = __('menu.datas.student');
-    //     $title = App::getLocale() == 'id' ? "$datas $student" : "$student $datas";
-    //     return view('pages.datas.student.printStudent', [
-    //         'data' => Student::all(),
-    //         'config' => Config::pluck('value', 'code')->toArray(),
-    //         'title' => $title,
-    //     ]);
-    // }
+    public function print(Request $request): View
+    {
+        $datas = __('menu.datas.menu');
+        $staff = __('menu.datas.staff');
+        $title = App::getLocale() == 'id' ? "$datas $staff" : "$staff $datas";
+        return view('pages.datas.staff.printStaff', [
+            'data' => Staff::all(),
+            'config' => Config::pluck('value', 'code')->toArray(),
+            'title' => $title,
+        ]);
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -51,13 +51,13 @@ class StaffController extends Controller
     {
         try {
 
-        // Validasi dan simpan data
-        $data = $request->validated();
+            // Validasi dan simpan data
+            $data = $request->validated();
 
-        // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
-        if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
-            return back()->with('error', 'Invalid jenis kelamin value.');
-        }
+            // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
+            if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
+                return back()->with('error', 'Invalid jenis kelamin value.');
+            }
             Staff::create($request->validated());
             return back()->with('success', __('menu.general.success'));
         } catch (\Throwable $exception) {
@@ -78,7 +78,8 @@ class StaffController extends Controller
             $staff->update($request->validated());
             return back()->with('success', __('menu.general.success'));
         } catch (\Throwable $exception) {
-            return back()->with('error', $exception->getMessage());
+            $errorMessage = $exception->getMessage();
+            return back()->with('error', $errorMessage);
         }
     }
 

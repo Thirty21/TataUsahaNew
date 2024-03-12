@@ -22,13 +22,13 @@
 @section('content')
     <x-breadcrumb
         :values="[__('menu.datas.menu'), __('menu.datas.teacher')]">
-        {{-- <a --}}
+        <a
         {{-- . '?' . $query --}}
-        {{-- href="{{ route('datas.teacher.print')  }}"
+        href="{{ route('datas.teacher.print')  }}"
         target="_blank"
         class="btn btn-primary">
         {{ __('menu.general.print') }}
-        </a> --}}
+        </a>
         <button
             type="button"
             class="btn btn-primary"
@@ -123,7 +123,7 @@
                     ></button>
                 </div>
                 <div class="modal-body">
-                    <x-input-form name="nig" :label="__('model.teacher.nig')"/>
+                    <x-input-form name="nig" :label="__('model.teacher.nig')" type="number"/>
                     <x-input-form name="nama" :label="__('model.teacher.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.teacher.tanggal_lahir')" type="date"/>
                     <div class="form-group">

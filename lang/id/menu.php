@@ -61,6 +61,7 @@ return [
         'delete_confirm' => 'Anda yakin ingin menghapusnya?',
         'delete_warning' => 'Aksi ini tidak dapat dibatalkan!',
         'success' => 'Berhasil',
+        'error' => 'Gagal',
         'fail' => 'Gagal',
         'doesnt_exists' => ":attribute tidak ada",
     ],

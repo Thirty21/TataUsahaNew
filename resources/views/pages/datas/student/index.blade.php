@@ -123,7 +123,7 @@
                     ></button>
                 </div>
                 <div class="modal-body">
-                    <x-input-form name="nis" :label="__('model.student.nis')"/>
+                    <x-input-form name="nis" :label="__('model.student.nis')" type="number"/>
                     <x-input-form name="nama" :label="__('model.student.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.student.tanggal_lahir')" type="date"/>
                     <div class="form-group">
@@ -162,7 +162,7 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id" value="">
-                    <x-input-form name="nis" :label="__('model.student.nis')"/>
+                    <x-input-form name="nis" :label="__('model.student.nis')" type="number"/>
                     <x-input-form name="nama" :label="__('model.student.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.student.tanggal_lahir')" type="date"/>
                     <div class="form-group">

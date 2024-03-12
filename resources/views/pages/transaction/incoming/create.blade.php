@@ -52,6 +52,7 @@
                         <input type="file" class="form-control @error('attachments') is-invalid @enderror" id="attachments"
                                name="attachments[]" multiple/>
                         <span class="error invalid-feedback">{{ $errors->first('attachments') }}</span>
+                        <p class="text-success">.pdf .ppt .docx .jpg .jpeg .png</p>
                     </div>
                 </div>
             </div>

@@ -36,11 +36,11 @@ class StoreStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nis' => ['required', Rule::unique('students'), 'size:8' ],
+            'nis' => ['required', Rule::unique('students'), 'size:8'],
             'nama' => ['required'],
-            'tanggal_lahir' => ['nullable'],
-            'gender' => ['nullable'],
-            'alamat' => ['nullable'],
+            'tanggal_lahir' => ['required'],
+            'gender' => ['required'],
+            'alamat' => ['required'],
         ];
     }
 }

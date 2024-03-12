@@ -47,19 +47,23 @@ class Letter extends Model
         'formatted_updated_at',
     ];
 
-    public function getFormattedLetterDateAttribute(): string {
+    public function getFormattedLetterDateAttribute(): string
+    {
         return Carbon::parse($this->letter_date)->isoFormat('dddd, D MMMM YYYY');
     }
 
-    public function getFormattedReceivedDateAttribute(): string {
+    public function getFormattedReceivedDateAttribute(): string
+    {
         return Carbon::parse($this->received_date)->isoFormat('dddd, D MMMM YYYY');
     }
 
-    public function getFormattedCreatedAtAttribute(): string {
+    public function getFormattedCreatedAtAttribute(): string
+    {
         return $this->created_at->isoFormat('dddd, D MMMM YYYY, HH:mm:ss');
     }
 
-    public function getFormattedUpdatedAtAttribute(): string {
+    public function getFormattedUpdatedAtAttribute(): string
+    {
         return $this->updated_at->isoFormat('dddd, D MMMM YYYY, HH:mm:ss');
     }
 
@@ -90,7 +94,7 @@ class Letter extends Model
 
     public function scopeSearch($query, $search)
     {
-        return $query->when($search, function($query, $find) {
+        return $query->when($search, function ($query, $find) {
             return $query
                 ->where('reference_number', $find)
                 ->orWhere('agenda_number', $find)
@@ -98,6 +102,7 @@ class Letter extends Model
                 ->orWhere('to', 'LIKE', $find . '%');
         });
     }
+
 
     public function scopeRender($query, $search)
     {

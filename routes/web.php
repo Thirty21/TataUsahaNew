@@ -29,7 +29,9 @@ Route::middleware(['auth'])->group(function () {
         Route::resource('student', \App\Http\Controllers\StudentController::class)->except(['show', 'create', 'edit']);
         Route::get('student/printStudent', [\App\Http\Controllers\StudentController::class, 'print'])->name('student.print');
         Route::resource('teacher', \App\Http\Controllers\TeacherController::class)->except(['show', 'create', 'edit']);
+        Route::get('teacher/printTeacher', [\App\Http\Controllers\TeacherController::class, 'print'])->name('teacher.print');
         Route::resource('staff', \App\Http\Controllers\StaffController::class)->except(['show', 'create', 'edit']);
+        Route::get('staff/printStaff', [\App\Http\Controllers\StaffController::class, 'print'])->name('staff.print');
     });
 
 

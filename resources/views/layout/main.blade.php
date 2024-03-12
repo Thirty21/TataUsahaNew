@@ -11,7 +11,7 @@
 
 =========================================================
  -->
-<!-- beautify ignore:start -->
+<!-- start -->
 <html
     lang="id"
     class="light-style layout-menu-fixed"
@@ -170,6 +170,20 @@
         })
     </script>
 @endif
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Validation Error',
+            text: '{{ $errors->first() }}',
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+        });
+    </script>
+@endif
+
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>

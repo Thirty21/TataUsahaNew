@@ -32,9 +32,16 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function print(Request $request): View
     {
-        //
+        $datas = __('menu.datas.menu');
+        $teacher = __('menu.datas.teacher');
+        $title = App::getLocale() == 'id' ? "$datas $teacher" : "$teacher $datas";
+        return view('pages.datas.teacher.printTeacher', [
+            'data' => Teacher::all(),
+            'config' => Config::pluck('value', 'code')->toArray(),
+            'title' => $title,
+        ]);
     }
 
     /**
@@ -47,10 +54,10 @@ class TeacherController extends Controller
     {
         try {
             $data = $request->validated();
-        // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
-        if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
-            return back()->with('error', 'Invalid jenis kelamin value.');
-        }
+            // Pastikan bahwa gender yang dikirimkan adalah salah satu dari opsi yang valid
+            if (!in_array($data['gender'], ['Laki-laki', 'Perempuan'])) {
+                return back()->with('error', 'Invalid jenis kelamin value.');
+            }
             Teacher::create($request->validated());
             return back()->with('success', __('menu.general.success'));
         } catch (\Throwable $exception) {
@@ -80,7 +87,7 @@ class TeacherController extends Controller
         //
     }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param UpdateTeacherRequest $request
@@ -97,7 +104,7 @@ class TeacherController extends Controller
         }
     }
 
-     /**
+    /**
      * Remove the specified resource from storage.
      *
      * @param Teacher $teacher

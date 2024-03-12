@@ -63,7 +63,7 @@ class OutgoingLetterController extends Controller
             'since' => $request->since,
             'until' => $request->until,
             'filter' => $request->filter,
-            'config' => Config::pluck('value','code')->toArray(),
+            'config' => Config::pluck('value', 'code')->toArray(),
             'title' => $title,
         ]);
     }
@@ -98,8 +98,8 @@ class OutgoingLetterController extends Controller
             if ($request->hasFile('attachments')) {
                 foreach ($request->attachments as $attachment) {
                     $extension = $attachment->getClientOriginalExtension();
-                    if (!in_array($extension, ['png', 'jpg', 'jpeg', 'pdf'])) continue;
-                    $filename = time() . '-'. $attachment->getClientOriginalName();
+                    if (!in_array($extension, ['png', 'jpg', 'jpeg', 'pdf', 'docx', 'pptx'])) continue;
+                    $filename = time() . '-' . $attachment->getClientOriginalName();
                     $filename = str_replace(' ', '-', $filename);
                     $attachment->storeAs('public/attachments', $filename);
                     Attachment::create([
@@ -160,7 +160,7 @@ class OutgoingLetterController extends Controller
                 foreach ($request->attachments as $attachment) {
                     $extension = $attachment->getClientOriginalExtension();
                     if (!in_array($extension, ['png', 'jpg', 'jpeg', 'pdf'])) continue;
-                    $filename = time() . '-'. $attachment->getClientOriginalName();
+                    $filename = time() . '-' . $attachment->getClientOriginalName();
                     $filename = str_replace(' ', '-', $filename);
                     $attachment->storeAs('public/attachments', $filename);
                     Attachment::create([

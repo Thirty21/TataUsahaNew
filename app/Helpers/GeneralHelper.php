@@ -6,6 +6,7 @@ class GeneralHelper
 {
     public static function calculateChangePercentage($initial, $final): float
     {
+        // Penurunan
         if ($initial > $final) {
             return self::calculateDecrementPercentage($initial, $final);
         }
@@ -19,6 +20,9 @@ class GeneralHelper
 
     public static function calculateIncrementPercentage($initial, $final): float
     {
+        // Menghitung selisih antara nilai akhir dan nilai awal
+        // Rumus: (selisih / nilai akhir) * 100
+        // Mengembalikan nilai persentase dengan dua digit desimal
         return round(($final - $initial) / $final * 100, 2);
     }
 
@@ -44,6 +48,6 @@ class GeneralHelper
             $greetingLang = 'night';
         }
 
-        return __( 'dashboard.greeting.' . $greetingLang, ['name' => $name]);
+        return __('dashboard.greeting.' . $greetingLang, ['name' => $name]);
     }
 }

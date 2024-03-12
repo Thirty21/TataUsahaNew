@@ -56,22 +56,21 @@
 <table>
     <thead>
     <tr>
-        <th>{{ __('model.student.nis') }}</th>
-        <th>{{ __('model.student.nama') }}</th>
-        <th>{{ __('model.student.tanggal_lahir') }}</th>
-        <th>{{ __('model.student.gender') }}</th>
-        <th>{{ __('model.student.alamat') }}</th>
-
+        <th>{{ __('model.staff.nig') }}</th>
+        <th>{{ __('model.staff.nama') }}</th>
+        <th>{{ __('model.staff.tanggal_lahir') }}</th>
+        <th>{{ __('model.staff.gender') }}</th>
+        <th>{{ __('model.staff.alamat') }}</th>
     </tr>
     </thead>
     <tbody>
-    @foreach($data as $student)
+    @foreach($data as $staff)
         <tr>
-            <td>{{ $student->nis }}</td>
-            <td>{{ $student->nama }}</td>
-            <td>{{ $student->tanggal_lahir }}</td>
-            <td>{{ $student->gender }}</td>
-            <td>{{ $student->alamat }}</td>
+            <td>{{ $staff->nig }}</td>
+            <td>{{ $staff->nama }}</td>
+            <td>{{ $staff->tanggal_lahir }}</td>
+            <td>{{ $staff->gender }}</td>
+            <td>{{ $staff->alamat }}</td>
         </tr>
     @endforeach
     </tbody>

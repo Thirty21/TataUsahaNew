@@ -33,13 +33,22 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Fortify::loginView(fn() => view('pages.login'));
+        Fortify::loginView(fn () => view('pages.login'));
 
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::authenticateUsing(function (Request $request) {
+
+            // $request->validate([
+            //     'email' => 'required|email',
+            //     'password' => 'required|min:8',
+            // ], [
+            //     'password.min' => 'Kata sandi harus terdiri dari minimal 8 karakter.',
+            // ]);
+
+            // validate login bro
             $user = User::where('email', $request->email)
                 ->where('is_active', true)
                 ->first();
@@ -51,10 +60,11 @@ class FortifyServiceProvider extends ServiceProvider
             return false;
         });
 
+
         RateLimiter::for('login', function (Request $request) {
             $email = (string) $request->email;
 
-            return Limit::perMinute(5)->by($email.$request->ip());
+            return Limit::perMinute(5)->by($email . $request->ip());
         });
 
         RateLimiter::for('two-factor', function (Request $request) {

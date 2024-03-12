@@ -19,10 +19,12 @@ class UserSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Administrator',
-            'email' => 'admin@admin.com',
+            'email' => 'ahdikhalida@gmail.com',
             'phone' => '082121212121',
-            'password' => Hash::make('admin'),
+            'password' => Hash::make('12345678'),
             'role' => Role::ADMIN->status(),
         ]);
+
+        // php artisan db:seed --class=UserSeeder
     }
 }

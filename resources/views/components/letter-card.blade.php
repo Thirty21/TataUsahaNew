@@ -78,11 +78,16 @@
                         <a href="{{ $attachment->path_url }}" target="_blank">
                             @if($attachment->extension == 'pdf')
                                 <i class="bx bxs-file-pdf display-6 cursor-pointer text-primary"></i>
+                            @elseif($attachment->extension == 'docx')
+                                <i class="bx bxs-file-doc display-6 cursor-pointer text-primary"></i>
+                            @elseif($attachment->extension == 'pptx')
+                                <i class="bx bxs-file-doc display-6 cursor-pointer text-primary"></i>
                             @elseif(in_array($attachment->extension, ['jpg', 'jpeg']))
                                 <i class="bx bxs-file-jpg display-6 cursor-pointer text-primary"></i>
                             @elseif($attachment->extension == 'png')
                                 <i class="bx bxs-file-png display-6 cursor-pointer text-primary"></i>
                             @endif
+
                         </a>
                     @endforeach
                 </div>

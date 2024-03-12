@@ -25,7 +25,7 @@
         :values="[__('menu.datas.menu'), __('menu.datas.staff')]">
         <a
         {{-- . '?' . $query --}}
-        href="{{ route('datas.student.print')  }}"
+        href="{{ route('datas.staff.print')  }}"
         target="_blank"
         class="btn btn-primary">
         {{ __('menu.general.print') }}
@@ -124,7 +124,7 @@
                     ></button>
                 </div>
                 <div class="modal-body">
-                    <x-input-form name="nip" :label="__('model.staff.nip')"/>
+                    <x-input-form name="nip" :label="__('model.staff.nip')" type="number"/>
                     <x-input-form name="nama" :label="__('model.staff.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.staff.tanggal_lahir')" type="date"/>
                     <div class="form-group">
@@ -163,7 +163,7 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" name="id" id="id" value="">
-                    <x-input-form name="nip" :label="__('model.staff.nip')"/>
+                    <x-input-form name="nip" :label="__('model.staff.nip')" type="number"/>
                     <x-input-form name="nama" :label="__('model.staff.nama')"/>
                     <x-input-form name="tanggal_lahir" :label="__('model.staff.tanggal_lahir')" type="date"/>
 
